@@ -6,7 +6,7 @@ Created on Tue Dec 29 09:43:51 2020
 """
 
 from flask import Flask, request, jsonify, render_template
-import server
+import util
 
 app = Flask(__name__, static_url_path="/client", static_folder='../client', template_folder="../client")
 
@@ -23,7 +23,7 @@ def predict_approval():
     Monthly_Balance = float(request.form['Monthly_Balance'])
     
     response = jsonify({
-        'model_prediction': server.util.loan_approval(Credit_History,	Total_income, Monthly_loan_payment,	Monthly_Balance)
+        'model_prediction': util.loan_approval(Credit_History,	Total_income, Monthly_loan_payment,	Monthly_Balance)
         })
     response.headers.add('Access-Control-Allow-Origin', '*')
 
