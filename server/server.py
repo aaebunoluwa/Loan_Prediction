@@ -55,7 +55,7 @@ def predict_approval():
     response = jsonify({
         'model_prediction': result
         })
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    #response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
 
