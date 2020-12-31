@@ -16,7 +16,7 @@ function approveLoan(){
         },
         function(data, status){
             console.log(data.model_prediction);
-            if (data.model_prediction == 1){
+            if (parseInt(data.model_prediction) == 1){
                 approval.innerHTML = '<h2>'+ 'Approved' + '</h2>'
 
             }

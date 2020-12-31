@@ -49,11 +49,11 @@ def predict_approval():
     Monthly_loan_payment = float(request.form['Monthly_Loan_Payment'])
     Monthly_Balance = float(request.form['Monthly_Balance'])
     
-    loan_approval(Credit_History,	Total_income, Monthly_loan_payment,	Monthly_Balance)
+    result = str(loan_approval(Credit_History,	Total_income, Monthly_loan_payment,	Monthly_Balance))
     
             
     response = jsonify({
-        'model_prediction': loan_approval(Credit_History,	Total_income, Monthly_loan_payment,	Monthly_Balance)
+        'model_prediction': result
         })
     response.headers.add('Access-Control-Allow-Origin', '*')
 
