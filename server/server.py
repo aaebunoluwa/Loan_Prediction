@@ -23,6 +23,7 @@ path = os.path.dirname(__file__)
 artifacts = os.path.join(path, "artifacts")
 
 
+
 def loan_approval(Credit_History,	Total_income,	Monthly_loan_payment,	Monthly_Balance):
     load_artifacts()
     X = np.array([Credit_History,	Total_income,	Monthly_loan_payment,	Monthly_Balance])
@@ -34,11 +35,11 @@ def load_artifacts():
     global __model, __data_columns
     
     
-    with open(artifacts[0]+'/Loan_prediction_model.pickle', 'rb') as f:
+    with open(artifacts+'/Loan_prediction_model.pickle', 'rb') as f:
         __model = pickle.load(f)
         
         
-    with open(artifacts[0]+'/data_columns.json', 'r') as f:
+    with open(artifacts+'/data_columns.json', 'r') as f:
         __data_columns = json.load(f)['data_columns']
     
 
