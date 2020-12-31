@@ -11,6 +11,8 @@ from flask import Flask, request, jsonify, render_template
 import json
 import pickle
 import numpy as np
+import logging
+import sys
 
 __model = None
 __data_columns = None
@@ -36,6 +38,8 @@ def load_artifacts():
     
 
 app = Flask(__name__, static_url_path="/client", static_folder='../client', template_folder="../client")
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route('/', methods=['GET'])
 def index():
